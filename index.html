@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEST Summer Course 2024 - Nancy</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="ressources/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="16x16" href="/ressources/favicon.png">
+  <style>
+    /* Importations de polices et définitions globales */
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Open Sans', sans-serif;
+      padding-top: 80px;
+    }
+
+    /* Styles de base pour les éléments de navigation et en-têtes */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: box-shadow 0.3s;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar-brand img {
+      height: 60px;
+    }
+
+    .nav-link {
+      color: #aa5cd2;
+    }
+
+    .nav-link.active {
+      color: #aa5cd2;
+    }
+
+    /* Styles pour les titres de sections */
+    .section {
+      position: relative;
+    }
+
+    .section-title {
+      color: #aa5cd2;
+      margin-bottom: 30px;
+    }
+    .section-title, .image-title {
+      text-align: center;
+    }
+
+    /* Styles pour la description de l'évènement */
+    .main-banner {
+        width: 65%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+    .main-banner {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+    .event-description {
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      border: 3px solid #aa5cd2;
+      font-weight: 400;
+      line-height: 1.6;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    .dates-location {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+    .dates-location {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .dates-location .info-button {
+        margin-right: 10px;
+    }
+
+    .dates-location .info-button:last-child {
+        margin-right: 0;
+    }
+}
+
+    .info-button {
+        background-color: #aa5cd2;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .info-button-light {
+        background-color: #f9f9f9;
+        color: #333333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .event-description p {
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #aa5cd2;
+      font-weight: 700;
+    }
+
+    .image-title {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Styles pour bouton de téléchargement */
+    .download-btn {
+        background-color: #218838;
+        color: #ffffff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .download-btn img {
+        margin-right: 10px;
+        height: 20px;
+    }
+
+    .survival-guide-container {
+        text-align: center;
+        padding: 20px 0 0 0;
+    }
+
+    .survival-guide-section {
+        background-color: #28a745;
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        display: inline-block;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        margin: 20px 0;
+    }
+
+    .survival-guide-section a {
+        color: white;
+        text-decoration: none;
+        background-color: #218838;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    .survival-guide-section a:hover {
+        background-color: #1e7e34;
+    }
+
+    /* Styles pour le pied de page */
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    /* Styles pour le pied de page */
+    .footer-logos {
+      max-height: 50px;
+      margin-top: 10px;
+    }
+
+    /* Styles pour les cartes de chaque organisateur */
+    .card-title {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 0.3em;
+    }
+
+    .organizer-img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .organizer-img-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin: auto;
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+
+    .organizer-card {
+      display: flex;
+      align-items: center;
+      background: #f9f9f9;
+      border: 3px solid #aa5cd2;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .organizer-info {
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    /* Styles de la galerie de pohots */
+    .carousel-image {
+      height: 550px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-image {
+            height: 375px;
+        }
+    }
+
+
+    /* Styles du embed Google Maps */
+    .embed-responsive {
+      padding-top: 40px;
+    }
+
+    /* Styles pour les images partenaires et horaires */
+    .partner-img,
+    .schedule-img {
+      max-width: 50%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .schedule-img {
+      max-width: 90%;
+    }
+
+    @media (max-width: 768px) {
+        .schedule-img {
+            max-width: 100%;
+        }
+    }
+
+    .logos-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .partner-img, .best-courses-logo {
+        max-width: 100%;
+        height: auto;
+        margin: 10px;
+    }
+
+
+    .ul-logo, .best-courses-logo {
+      max-width: 20rem;
+      height: auto;
+      margin: 0 10px;
+    }
+
+    /* Styles pour les boutons de réseaux sociaux */
+
+    .social-media-contact {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .social-media-button {
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin: 5px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      outline: none;
+    }
+
+    .social-media-button:hover {
+      background-color: #1e7e34;
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-media-button img {
+      margin-right: 10px;
+      height: 20px;
+    }
+
+    .social-media-button span {
+      font-weight: bold;
+      color: white;
+    }
+
+    .instagram-btn {
+      background-color: #C13584;
+    }   
+    .instagram-btn:hover {
+      background-color: #a82d6d;
+    }
+
+    .facebook-btn {
+      background-color: #3b5998;
+    }
+    .facebook-btn:hover {
+      background-color: #2d4373;
+    }
+
+    .email-btn {
+      background-color: #FFA500;
+    }
+    .email-btn:hover {
+      background-color: #cc8400;
+    }
+
+    .location-btn {
+      background-color: #808080;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .location-btn:hover {
+      background-color: #666666;
+    }
+
+    /* Styles pour les conteneurs de boutons */
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div class="navbar-brand"><img src="ressources/BEST_NANCY_LOGO.png" alt="BEST Nancy Logo" height="50"></div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#event-intro">BEST Course 2024</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#schedule">Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#organizers">Organizers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#partners">Partners</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Event introduction -->
+  <section id="event-intro" class="event-intro py-5 section">
+    <div class="container">
+      <h2 class="section-title">BEST Course in Summer 2024</h2>
+
+      <img src="ressources/banniere-best2024.png" alt="Image principale" class="main-banner img-fluid mx-auto d-block mb-3">
+
+      <h3 class="image-title">Beyond recycling - the circular games start now!</h3>
+
+      <!-- Description of the event -->
+      <div class="event-description">
+        <p>Ever wondered how to <span class="highlight">make a real impact on the environment</span> without having to
+          peel a double plastic packaging?</p>
+        <p>Overconsumption enhances climate change and we, French <span class="highlight">pioneers in
+            eco-innovation</span>, embark on a quest to bring that down! On this French adventure, you’ll gain knowledge
+          and discuss sustainable processes and designs, because the world’s problems and sustainable future are in our
+          hands, and it is our responsibility to tackle them now. Let’s discuss together how to go from the
+          “take-make-dispose” linear approach towards a more sustainable one, with a circular model.</p>
+        <p>Aside from this combat, you’ll get to stroll through the most beautiful square in Europe and visit the
+          capital city of the Dukedoms of Lorraine. That’s without mentioning the smell of magnificent croissants
+          waiting for you while exploring each square of our city. But most importantly, you will experience <span
+            class="highlight">the best of French culture</span>: amazing food (cheese, wine, bread, yes eventually
+          snails and others), lot’s of coffee, “la bise”, and all the other hidden mysteries of our culture.</p>
+      </div>
+
+      <!-- Dates and location -->
+      <div class="dates-location">
+        <div class="info-button">
+            <strong>Dates:</strong> From 30.06 to 07.07
+        </div>
+        <div class="info-button">
+            <strong>Location:</strong> Université de Lorraine, Nancy, France
+        </div>
+      </div>
+      <div class="dates-location">
+        <div class="info-button-light">
+          Check below for more information
+        </div>
+      </div>
+
+
+      <!-- Download Survival Guide -->
+      <div class="survival-guide-container">
+        <div class="survival-guide-section">
+            <p>We have gathered all the important information you need to know in our Survival Guide! Please check it out!</p>
+            <a href="ressources/survival-guide-best-nancy-2024.pdf" class="download-btn" target="_blank" download>
+                <img src="ressources/pdf-icon.png" alt="PDF Icon"><strong>Download our Survival Guide</strong>
+            </a>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Schedule -->
+  <section id="schedule" class="schedule py-5 section">
+    <div class="container">
+      <h2 class="section-title">Course Schedule</h2>
+      <img src="ressources/emploi-du-temps.png" alt="Emploi du temps" class="schedule-img">
+    </div>
+
+  </section>
+
+
+  <!-- Organizers Section -->
+  <section id="organizers" class="organizers py-5 section">
+    <div class="container">
+      <h2 class="section-title">Core Team</h2>
+      <div class="row">
+        <!-- Organizer 1 -->
+        <div class="col-lg-6 col-sm-12">
+          <div class="organizer-card">
+            <div class="organizer-img-container">
+              <img class="organizer-img" src="ressources/photo-axel.png" alt="Axel">
+            </div>
+            <div class="organizer-info">
+              <h5 class="card-title">Axel</h5>
+              <p class="card-text">Main Organizer</p>
+            </div>
+          </div>
+        </div>
+        <!-- Organizer 2 -->
+        <div class="col-lg-6 col-sm-12">
+          <div class="organizer-card">
+            <div class="organizer-img-container">
+              <img class="organizer-img" src="ressources/photo-laura.png" alt="Laura">
+            </div>
+            <div class="organizer-info">
+              <h5 class="card-title">Laura</h5>
+              <p class="card-text">Main Organizer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery py-5 section">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 carousel-image" src="ressources/photo_gallery_1.jpg" alt="Photo Galerie 1">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 carousel-image" src="ressources/photo_gallery_2.jpg" alt="Photo Galerie 2">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 carousel-image" src="ressources/photo_gallery_3.jpg" alt="Photo Galerie 3">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" class="partners py-5 section">
+    <div class="container">
+      <h2 class="section-title">Our partners and sponsors</h2>
+      <div class="logos-container">
+        <img src="ressources/logo_UL.png" alt="Logo Université de Lorraine" class="ul-logo">
+        <img src="ressources/logo_best_courses.png" alt="Logo Best Courses" class="best-courses-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us -->
+  <section id="contact" class="location py-5 section">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+  
+      <!-- Social Media Buttons -->
+      <div class="social-media-contact">
+        <a href="https://www.instagram.com/bestnancy_/" class="social-media-button instagram-btn" target="_blank">
+          <img src="ressources/icone-instagram.png" alt="Instagram">
+          <span>@bestnancy_</span>
+        </a>
+        <a href="https://www.facebook.com/board.bestnancy" class="social-media-button facebook-btn" target="_blank">
+          <img src="ressources/icone-facebook.png" alt="Facebook">
+          <span>Best Nancy</span>
+        </a>
+        <a href="mailto:boardbestnancy@gmail.com" class="social-media-button email-btn" target="_blank">
+          <img src="ressources/icone-mail.png" alt="Email">
+          <span>Send us an email</span>
+        </a>
+        <br>
+        <a href="https://maps.app.goo.gl/DB36eubPCSbAaTtR8" class="social-media-button location-btn" target="_blank">
+          <img src="ressources/icone-location.png" alt="Location">
+          <span>ENSGSI, 8 rue Bastien Lepage, 54000 Nancy, France</span>
+        </a>
+      </div>
+
+      <!-- Embed of Google Maps -->
+      <div class="embed-responsive" style="padding-bottom: 40%;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5299022.648690307!2d2.2187029019911937!3d47.297354641391735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794986e17a692cd%3A0x4ed671b10d82498d!2sNancy!5e0!3m2!1sfr!2sfr!4v1706906244324!5m2!1sfr!2sfr"
+        class="embed-responsive-item" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="alert alert-primary" role="alert" style="display: inline-block;">
+        <strong>Full website under construction</strong>
+      </div>
+      <p>© 2024 BEST Nancy</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+    document.querySelectorAll('.nav-link').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+  
+        const sectionId = this.getAttribute('href');
+        const section = document.querySelector(sectionId);
+        const offsetTop = section.offsetTop;
+  
+        window.scroll({
+          top: offsetTop - 80,
+          behavior: 'smooth'
+        });
+      });
+    });
+  
+    window.addEventListener('scroll', function() {
+      if (window.location.hash) {
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const sections = document.querySelectorAll(".section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      function changeLinkState() {
+        let index = sections.length;
+
+        while(--index && window.scrollY + 80 < sections[index].offsetTop) {}
+
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      }
+
+      changeLinkState();
+      window.addEventListener('scroll', changeLinkState);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.navbar .nav-link');
+
+    function collapseNavbar() {
+      const navbarToggler = document.querySelector('.navbar-toggler');
+      const navbarMenu = document.querySelector('#navbarNav');
+
+      if (navbarMenu.classList.contains('show')) {
+        navbarToggler.click();
+      }
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', collapseNavbar);
+    });
+  });
+  </script>
+  
+</body>
+
+</html>
